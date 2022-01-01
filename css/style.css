@@ -1,0 +1,838 @@
+body{
+    margin: 0;/* убрать отступы у body*/
+    font-size: 20px;/* Размер шрифта, который чаще всего используется на сайте*/
+    color: #0b0706;/* Основной цвет текста*/
+    /*Так как воснеовном белый фон почти везде, то ставим основной фон 'белый'*/
+    -webkit-font-smoothing: antialiased;/* Сглаживание шрифтов*/
+    font-family: 'Raleway', sans-serif;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;/* Алгоритм подсчета блоков с учетом padingov и границ.
+     То есть, если у нас размер блока  будет 14px и pading по 20px, то блоки останутся по 400px,
+     а контент будет чуть меньше*/
+}
+* {
+    box-sizing: border-box;
+}
+.h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+
+.center_h1{
+    font-size: 35px;
+    font-weight: 400;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;/*Отключение подчеркивание ссылок*/
+}
+.container {
+    width: 100%; /* Ширина блока 100%, но максимальная его ширина 1400px*/
+    max-width: 1400px;
+    margin: 0 auto; /* Выравнивание по центру. Сверху и снизу=0. Слево и справо=auto, так как выравнивать будем по центру*/
+    padding-right: 15px;
+    padding-left: 15px;
+    }
+
+
+/* Header
+==============*/
+
+header_font{
+    background: black;
+    width: 100%;/* Ширина шапки 'header'*/
+}
+.header{
+    width: 100%;/* Ширина шапки 'header'*/
+    height: 90px;/* Выстота шапки 'header'*/
+    /* Чтобы навигацию сделать поверх основного фона используем тег ' position'*/
+    position: relative;/* поверх фона*/
+    top:0;
+    left: 0;
+    z-index: 1000;
+    background-color: black;
+}
+
+
+/*Чтобы сделать отступ  от блока 'header' от верхней границы, пропишем тег 'height'. Размер берем из фотошопа(100px) */
+.header_inner{
+    display: flex ;
+    /* Для того чтобы разделить два элемента в нашем блоке 'header_inner', чтобы логотип был слева, а навигация справа
+         используем тег 'justify-content'*/
+    justify-content:space-between ;/* между даными элементами будет расстояние, логотип слева, а навигация справа*/
+    /*Чтобы сделать отступ сверху и снизу используем тег 'padding'*/
+    padding: 30px 0;/* Внуиренний отступ сверху и снизу=35px, слева и справа=0 в блоке 'header_inner'*/
+}
+
+
+.header_logo{
+    width: 100px;
+    height: 35px ;
+    max-width: 100%;
+}
+
+
+/* =Nav
+==============*/
+.header_nav/* Работа с Блоком 'nav'*/
+{
+    font-size: 18px;/* общий размер для навигации*/
+    font-family: sans-serif; /* Стиль шрифта*/
+    font-weight: 400;
+    /* Для выравнивания техта в блоке пропишем тег 'margin-block: auto'*/
+    margin-block: auto;
+}
+
+
+/* Сначало пропишем все стили которые есть в этом блоке*/
+.nav_linc{
+
+    color: white;/* цвет текста навигационной панели справа*/
+    /* Для того чтобы убрать линии у навигационного текста используем тег ' text-decoration'*/
+    text-decoration: none;
+    /* Для того чтобы шрифт навигации сделать полупрозрачным, прописываем тег 'opacity'*/
+    opacity: .50;
+    /* Для того чтоб позрачность убиралась плавно пропишем тег 'transition' и выберем тег 'opacity' (max 0.2s)*/
+    transition: opacity 0.1s linear;
+    /* Для того чтобы разделиь элементы в навигации используем тег 'margin-left'*/
+    padding-left: 50px;
+}
+/* Для того чтобы убрать отступ  у первого элемента в навигации прописываем то, что ниже) */
+.nav_linc:first-child /*first-child псевдокласс, который находит любой элемент, являющийся первым*/{
+    margin-left: 0;
+}
+
+
+.nav_linc:hover{
+
+    /* Чтобы при наведении на шрифт навигации убиралась полупрозрачность пропишем тег 'opacity: 1'*/
+    opacity: 1;
+}
+
+
+/* CONTENT
+==============*/
+.content {
+    display: block;
+    /* Чтобы вставить задний фон 'intro-bg.jpg', используем тег ' background: url'*/
+    /*********************************************************/
+    background: url("../img/image.png"); /* Указываем путь к папке с картинками.*/
+    /* Сначало пропишем стили для этого блока*/
+    height: 850px; /* Высота блока*/
+    background-position: center;
+    background-size: cover;
+}
+
+
+.content_logo{
+    display: flex ;/* расположение блоков по горизонтали*/
+    gap: 50px;/* Отступ между блоками*/
+    padding: 150px 0;
+    align-items: center;/* расположение по центру в блоке по вертикали*/
+}
+
+
+.content_block{
+    width: 100%;
+}
+
+
+.content_h {
+    /* Для того чтобы сдкелать все буквы большие используем тег 'text-transform'*/
+    text-transform: uppercase; /* все буквы стали заглавными*/
+    font-family: sans-serif; /* Стиль шрифта*/
+    font-size: 42px; /* Размер шрифта. Не обязательно, так как уже прописан в 'body'*/
+    color: white; /* Цвет шрифта*/
+    font-weight: 400; /* Стилизация шрифта*/
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+    margin-top: 50px;
+
+}
+
+
+.content_line{
+    background-color: white;
+    height: 2px;
+    width: 100px;
+    margin: 50px 0;
+}
+
+.content_p{
+    /* Для того чтобы сдкелать все буквы большие используем тег 'text-transform'*/
+    font-family: sans-serif; /* Стиль шрифта*/
+    font-size: 20px; /* Размер шрифта. Не обязательно, так как уже прописан в 'body'*/
+    color: white; /* Цвет шрифта*/
+    font-weight: 400; /* Стилизация шрифта*/
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 50px;
+}
+
+
+.content_btn{
+    /* Для создания всяких paddingov используем тег 'display: inline-block'*/
+    display: inline-block;
+    vertical-align: top; /* Выравнивание по вертикальной границы, точнее по верху*/
+    font-size: 20px;/* Размер шрифта*/
+    color: white;/* Цвет шрифта*/
+    /* Для ого чтобы убрать линию под текстом в кнопке, напишем тег 'text-decoration: none'*/
+    text-decoration: none;
+    font-family: sans-serif;
+    cursor: pointer;
+    /* Для того чтобы сделать плавный переход фона импользуем тег 'transition: background'*/
+    transition: background .1s linear;
+    padding-top: 50px;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(131,190,197,0.0);/*Прозрачность фона в кнопке*/
+    transition: all 0.3s;
+
+}
+
+
+.content_btn--solid {
+
+    border: 2px solid white;
+    /* Для ого чтобы сделать внутренние отступы в кнопке и спользуем тег
+     'Padding'. сверху и снизу 12px, справа и слева 40px*/
+    padding: 14px 40px; /*'Padding'-внутренний отступ.*/
+    opacity: .7 ;/*Прозрачность самой кнопки*/
+
+
+}
+
+.form{
+    margin-left: 200px;
+    padding: 40px;
+}
+
+
+.form_text{
+    /* Для того чтобы сдкелать все буквы большие используем тег 'text-transform'*/
+    font-family: sans-serif; /* Стиль шрифта*/
+    /* Для ого чтобы сделать внутренние отступы в кнопке и спользуем тег
+     'Padding'. сверху и снизу 12px, справа и слева 40px*/
+    padding: 15px;/*'Padding'-внутренний отступ.*/
+    color: black;
+    font-size: 25px;/* Размер шрифта*/
+    font-weight: bold;/* Жирный шрифт*/
+    background-color: #ebe8e8;/* заливка текста в рамке*/
+    text-align: center;
+}
+
+
+.text_span{
+    color: #ff8b38;/* цвет шрифта*/
+}
+
+
+.form_input{
+    background-color: white;/* заливка текста в рамке*/
+    padding-bottom: 25px;
+    text-align: center;
+}
+.input_text4{
+    font-size: 16px;/* Размер шрифта*/
+    font-family: sans-serif; /* Стиль шрифта*/
+    margin: 30px 0px 15px 0px;
+    padding: 10px 120px 0 0px;
+    opacity: 0.5;/* Прозрачность */
+    outline: none;/* Исчезновение рамки принаведении*/
+    border-top:  solid white;/* Граница сверху*/
+    border-left: solid white;/*Граница слева*/
+    border-right:  solid white;/*Граница справа*/
+
+}
+
+
+.form_btn{
+    text-align: center;
+    background-color: #ff9b51;
+}
+.form_btn2{
+    /* Для создания всяких paddingov используем тег 'display: inline-block'*/
+    display: inline-block;/**/
+    vertical-align: top; /* Выравнивание по вертикальной границы, точнее по верху*/
+    font-size: 25px;/* Размер шрифта*/
+    color: white;/* Цвет шрифта*/
+    /* Для ого чтобы убрать линию под текстом в кнопке, напишем тег 'text-decoration: none'*/
+    text-decoration: none;
+    font-family: sans-serif; /* Стиль шрифта*/
+    cursor: pointer;
+    /* Для того чтобы сделать плавный переход фона импользуем тег 'transition: background'*/
+    transition: background .1s linear;
+    padding: 25px 0 25px 0;
+}
+
+/*====SOCIAL====*/
+.social{
+    width: 100%;
+    padding: 10px 0;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    background-color: white;
+    z-index: 2;
+    position: relative;
+}
+.container_social{
+    display: flex ;/* расположение блоков по горизонтали*/
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.social_block img{
+    padding: 0 20px;
+    opacity: 0.5;/* Прозрачность */
+}
+
+
+.social_block_text{
+    width: 70%;
+}
+
+
+.social_title{
+    font-family: sans-serif; /* Стиль шрифта*/
+    font-size: 25px;/* общий размер  шрифта для навигации*/
+    font-weight: 700;
+}
+
+
+.social_text{
+    font-size: 18px;/* Размер шрифта*/
+    opacity: 0.5;/* Прозрачность */
+    color: black;
+    font-family: sans-serif; /* Стиль шрифта*/
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+    margin: 0;
+}
+
+
+/*====BODY====*/
+.body{
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 150px 0;
+    font-family: sans-serif; /* Стиль шрифта*/
+}
+
+
+.container_body{
+}
+
+.body_block{
+    display: flex ;/* расположение блоков по горизонтали*/
+}
+
+.body_left{
+    padding-right: 100px;
+}
+
+
+.body_left div{
+    font-size: 15px;
+    color: white;
+    padding: 60px;
+    font-family: sans-serif; /* Стиль шрифта*/
+    border-bottom: 1px solid #f5f5f5;
+    font-weight: 700;
+}
+
+.ol1{
+    background-color: #ff8b38;
+}
+
+
+.ol2{
+    background-color: #333333;
+}
+
+
+.body_center{
+    width: 50%;
+    padding-right: 45px ; /*'Padding'-внутренний отступ.*/
+    align-items: center;
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+}
+
+
+.body_title{
+    font-size: 30px;
+}
+
+
+.body_text{
+    font-size: 18px;
+    color: black;
+    font-family: sans-serif; /* Стиль шрифта*/
+    opacity: 0.5;/* Прозрачность */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.body_btn{
+    /* Для создания всяких paddingov используем тег 'display: inline-block'*/
+    display: inline-block;
+    vertical-align: top; /* Выравнивание по вертикальной границы, точнее по верху*/
+    font-size: 18px;/* Размер шрифта*/
+    color: white;/* Цвет шрифта*/
+    font-family: sans-serif;
+    cursor: pointer;
+    padding-top: 50px;
+    background-color: #ff8b38;
+    border-radius: 6%;
+
+}
+
+
+.body_btn--solid {
+    border: 2px solid white;
+    /* Для ого чтобы сделать внутренние отступы в кнопке и спользуем тег
+     'Padding'. сверху и снизу 12px, справа и слева 40px*/
+    padding: 18px 40px; /*'Padding'-внутренний отступ.*/
+
+}
+
+.body_right {
+    padding-right: 50px;
+    padding-top: 50px;
+
+}
+
+
+
+/*=======CNT=====*/
+.cnt{
+padding: 150px 0;
+font-family: sans-serif; /* Стиль шрифта*/
+}
+
+.container_cnt{
+display: flex;
+}
+
+.cnt_left{
+margin-top: 100px;
+}
+
+
+.cnt_right{
+    padding-left: 165px;
+    font-size: 20px;
+
+}
+
+
+.content_line{
+    background-color: #ff8b38;
+    width: 100px;
+}
+
+
+.cnt_text {
+    opacity: 0.5;/* Прозрачность */
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+}
+
+
+.cnt_text1{
+    padding-left: 90px;
+    margin-top: 40px;
+}
+
+
+.cnt_image img{
+float:left/* ==Обтекание слева==*/
+}
+
+
+/*====CNT1====*/
+.cnt1 {
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 150px 0;
+    font-family: sans-serif; /* Стиль шрифта*/
+}
+.container_cnt1{
+    display: flex;
+}
+
+
+.cnt1_right_block{
+    margin-top: 30px;
+    font-size: 20px;
+    padding-right: 130px;
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+}
+
+
+.cnt1_title{
+    font-size: 25px;
+}
+
+
+.cnt1_text{
+
+}
+
+.cnt_left img{
+    float:left/* ==Обтекание слева==*/
+}
+
+/*===Body1===*/
+.body1{
+    background-color: white;
+    width: 100%;
+    padding: 150px 0;
+    font-family: sans-serif; /* Стиль шрифта*/
+
+
+}
+
+
+.container_body1 {
+
+}
+
+.body1_center{
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+
+.body1_title {
+    font-size: 36px;
+    padding-top: 20px;
+ine-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+
+}
+
+
+.body1_line{
+    background-color: #ff8b38;
+    height: 2px;
+    width: 100px;
+    margin: 20px auto;
+}
+
+
+.body1_text{
+    opacity: 0.5;/* Прозрачность */
+}
+
+
+
+.container_body2{
+    display: flex;
+    text-align: center;
+    line-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1*/
+    gap: 10px;
+}
+
+
+
+
+.body2_title{
+    font-size: 25px;
+    margin-top: 20px;
+
+}
+/*==Body3==*/
+.body3{
+    background-color: #f5f5f5;
+    padding: 150px 0;
+    font-family: sans-serif; /* Стиль шрифта*/
+    ine-height: 1.5; /*Межстрочный отступ. Смотреть в фотошопе 35px примерно=1.1 */
+
+
+}
+
+.body3_center{
+text-align: center;
+}
+
+.body3_line{
+    background-color: #ff8b38;
+    height: 2px;
+    width: 100px;
+    margin: 20px auto;
+}
+
+.body3_left{
+    text-align: center;
+    width: 100%;
+
+}
+
+.body3_block1{
+    color: white;
+    background-color: #333333;
+}
+.body4{
+    display: flex;
+    align-items: end;/*верх, середина низ*/
+    justify-content: space-between;/*'space-between'-заполнение по всей ширины*/
+
+    gap: 30px;
+    margin-top: 100px;
+}
+
+
+.Body3_left_up{
+    font-size: 30px;
+    color: white;
+    font-family: sans-serif; /* Стиль шрифта*/
+    border-bottom: 1px solid #f5f5f5;
+    font-weight: 400;
+    padding: 20px 0;
+}
+
+
+span1{
+    font-size: 150px;
+}
+
+
+.body3_text{
+    font-size: 50px;
+    padding: 10px;
+    font-weight: 700;
+}
+.body3_text1{
+    font-size: 15px;
+    opacity: 0.5;/* Прозрачность */
+    padding-bottom: 10px;
+}
+
+.body3_line2{
+    background-color: #ff8b38;
+    height: 10px;
+}
+
+.body3_left_down div{
+    background-color:white ;
+    font-size: 18px;
+    color: black;
+    padding: 20px;
+    font-family: sans-serif; /* Стиль шрифта*/
+    border-bottom: 3px solid #f5f5f5;
+
+    opacity: 0.4;/* Прозрачность */
+    text-align: center;
+    text-transform: uppercase;
+}
+.body3_text span{/*Нужно поставить класс==================================*/
+    font-size: 150px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.body3_line3{
+    background-color: #ff8b38;
+    height: 45px;
+}
+
+.Line_text{
+    color: white;
+padding: 10px;
+}
+
+/*===Body5====*/
+.body5{
+    padding: 150px 0;
+    font-family: sans-serif; /* Стиль шрифта*/
+
+}
+
+.body6{
+    display: flex;
+    align-items: end;/*верх, середина низ*/
+    justify-content: space-between;/*'space-between'-заполнение по всей ширины*/
+    gap: 30px;
+    margin-top: 100px;
+}
+
+.body5_img{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 250%;
+}
+
+.body5_text{
+    position: absolute;
+    font-size: 19px;
+    top: 10%;
+    left: 4%;
+    opacity: 0.4;/* Прозрачность */
+    font-family: 'Open Sans', sans-serif; /* Стиль шрифта*/
+    text-align: left;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.body5_left1{
+    display: flex;
+}
+
+.body5_text2{
+font-size: 15px;
+}
+
+.body5_left2{
+    margin-left: 20px;
+}
+
+
+/*===Body7=====*/
+.body7 {
+    font-family: 'Open Sans', sans-serif; /* Стиль шрифта*/
+    color: white;
+    text-align: center;
+    /* Чтобы вставить задний фон 'intro-bg.jpg', используем тег ' background: url'*/
+    /*********************************************************/
+    background: url("../img/u25_state0.png"); /* Указываем путь к папке с картинками.*/
+    /* Сначало пропишем стили для этого блока*/
+    /* Высота блока*/
+    background-position: center;/*Располодение фона по центру*/
+    background-size: 100%;
+    padding: 150px 0;
+}
+
+.body7_title{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+}
+
+
+.body7_line{
+    background-color: white;
+    height: 3px;
+    width: 100px;
+    margin: 30px auto 0;
+}
+
+
+.body7_text{
+    font-size: 20px;
+    opacity: 0.5;/* Прозрачность */
+    padding: 30px 0 50px;
+}
+
+.body7_btn {
+      font-size: 20px; /* Размер шрифта*/
+    /* Для ого чтобы убрать линию под текстом в кнопке, напишем тег 'text-decoration: none'*/
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.body7_btn--solid {
+    border: 2px solid white;
+    /* Для ого чтобы сделать внутренние отступы в кнопке и спользуем тег
+     'Padding'. сверху и снизу 12px, справа и слева 40px*/
+    padding: 18px 60px; /*'Padding'-внутренний отступ.*/
+    color: white; /* Цвет шрифта*/
+}
+
+
+/******Body8******/
+.body8{
+    font-family: 'Open Sans', sans-serif; /* Стиль шрифта*/
+    margin: 150px 0;
+}
+.body8_block_center{
+    text-align: center;
+}
+
+.body8_line{
+    background-color: #ff8b38;
+    height: 3px;
+    width: 100px;
+    margin: 30px auto 0;
+}
+
+.body8_text{
+
+    opacity: 0.5;/* Прозрачность */
+    padding: 30px 0 50px;
+}
+
+.body8_form{
+    display: flex;
+    justify-content: space-between;/*'space-between'-заполнение по всей ширины*/
+}
+
+.body8_form_left, .body8_form_light{
+width: 48%;
+}
+
+.body8_form_input{
+    background-color: white;/* заливка текста в рамке*/
+    padding-bottom: 25px;
+    text-align: center;
+ }
+
+
+.body8_input_text4, .body8_input_text5{
+    font-family: sans-serif; /* Стиль шрифта*/
+    padding: 30px 0 20px 0;
+    opacity: 0.7;/* Прозрачность */
+    outline: none;/* Исчезновение рамки принаведении*/
+    border-top:  solid white;/* Граница сверху*/
+    border-left: solid white;/*Граница слева*/
+    border-right:  solid white;/*Граница справа*/
+    font-size: 25px;
+    width: 100%;
+}
+
+.body8_input_text5{
+    height: 251px;
+}
+
+.body8_btn {
+    font-size: 20px; /* Размер шрифта*/
+    /* Для ого чтобы убрать линию под текстом в кнопке, напишем тег 'text-decoration: none'*/
+    font-family: sans-serif;
+    cursor: pointer;
+    text-align: center;
+}
+
+.body8_btn--solid {
+    border: 2px solid #ff9b51;
+    /* Для ого чтобы сделать внутренние отступы в кнопке и спользуем тег
+     'Padding'. сверху и снизу 12px, справа и слева 40px*/
+    padding: 18px 60px; /*'Padding'-внутренний отступ.*/
+    color: white; /* Цвет шрифта*/
+    background-color: #ff9b51;
+}
+
+
+/*===FOOTER===*/
+
+.footer{
+    font-family: 'Open Sans', sans-serif; /* Стиль шрифта*/
+   padding: 20px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+   }
+
+.footer_block{
+    opacity: 0.5;/* Прозрачность */
+}
+
+.footer_logo img{
+justify-content: space-between;
+      padding: 0 20px 20px 20px;
+}
+
